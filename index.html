@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Cost EMI Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-2xl">
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">💳 No Cost EMI Real Cost Calculator</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="font-semibold">Product Price (₹)</label>
+        <input id="price" type="number" class="w-full p-2 mt-1 border rounded-md" placeholder="e.g. 38990">
+      </div>
+      <div>
+        <label class="font-semibold">Discounted Price (₹)</label>
+        <input id="discount" type="number" class="w-full p-2 mt-1 border rounded-md" placeholder="e.g. 29500">
+      </div>
+
+      <div>
+        <label class="font-semibold">Tenure (Months)</label>
+        <input id="months" type="number" class="w-full p-2 mt-1 border rounded-md" placeholder="e.g. 12">
+      </div>
+
+      <div>
+        <label class="font-semibold">Interest Rate (% p.a.)</label>
+        <input id="interestRate" type="number" class="w-full p-2 mt-1 border rounded-md" placeholder="e.g. 15">
+      </div>
+
+      <div>
+        <label class="font-semibold">Processing Fee (₹)</label>
+        <input id="processingFee" type="number" class="w-full p-2 mt-1 border rounded-md" placeholder="e.g. 299">
+      </div>
+
+      <div>
+        <label class="font-semibold">GST Rate (%)</label>
+        <input id="gstRate" type="number" class="w-full p-2 mt-1 border rounded-md" value="18">
+      </div>
+    </div>
+
+    <div class="text-center mt-6">
+      <button onclick="calculate()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-lg">Calculate</button>
+    </div>
+
+    <div id="result" class="mt-8 hidden">
+      <h2 class="text-xl font-semibold text-center text-green-600 mb-4">Results</h2>
+      <div class="bg-gray-100 rounded-lg p-4 space-y-2 text-sm">
+        <p><strong>Monthly EMI:</strong> ₹<span id="emi"></span></p>
+        <p><strong>Total Interest:</strong> ₹<span id="interest"></span></p>
+        <p><strong>GST on Interest:</strong> ₹<span id="gstInterest"></span></p>
+        <p><strong>Processing Fee + GST:</strong> ₹<span id="processingTotal"></span></p>
+        <p><strong>Total Effective Cost:</strong> ₹<span id="totalCost"></span></p>
+        <p class="text-red-600 font-semibold"><strong>Extra Paid Beyond Discounted Price:</strong> ₹<span id="extra"></span></p>
+      </div>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-6 text-center">
+      *This tool helps estimate the true cost of “No Cost” EMIs by adding hidden GST and fees.<br>
+      Made with ❤️ for smart shoppers.
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
